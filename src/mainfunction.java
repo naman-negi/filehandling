@@ -1,17 +1,39 @@
-import java.io.File;
 import java.util.Scanner;
+import java.io.FileWriter;
+import java.io.File;//Note Required
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.FileNotFoundException;//Note Required
+
 class school{
 
-	void addstudents(String str){
-		if (str==null) {
-		}
-		else {
-			System.out.println("want to add more files(Yes/no):"):
+	//This Function will add new txt files in a new directory
+	String addstudents(String str){
+		str=str+"C:/Users/Naman/Desktop/eclipse-workspace/filehandling/src/";
+		FileWriter fw1=null;;  
+		try { 
+			fw1=new FileWriter(str);
+			BufferedWriter bf= new BufferedWriter(fw1);
+			bf.write("Name: Naman");
+			bf.write("Roll No: 1");
+		}finally {if (fw1 != null) {
+	        try {
+	            fw1.close();
+	        } catch (IOException e) {
+	            // This is unrecoverable. Just report it and move on
+	            e.printStackTrace();
+	        }
+	        }
+		
+			System.out.println("want to add more files(Yes/no):");
 			Scanner adding = new Scanner(System.in);
 			String str2=adding.nextLine();
-			}
+			
+
+		}
+	//This Function will list all possible files in a directory
 	}
-}
+
 public class mainfunction {
 	public static void main(String[] args) {
 		String str,path,dirName,str3,str2;
@@ -37,8 +59,8 @@ public class mainfunction {
 						   if (str2==null) {
 							   System.out.println("No files in the current dierctory:");
 							   Scanner student1 = new Scanner(System.in);
-							   str3=student1.nextLine();
-							   calling.addstudents(str3);
+							   str2=student1.nextLine();
+							   calling.addstudents(str2);
 						   }
 					   }
 				 }
