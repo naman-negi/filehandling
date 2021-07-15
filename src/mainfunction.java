@@ -2,74 +2,41 @@ import java.io.File;
 import java.util.Scanner;
 class school{
 	String addclass;
-	
-	String allstudentclasses() {
-		
-	}
-	school(String addclass){
-		
-	}
-	
-	void classadd(){
-		
-	}
-	
-	sortstudentfile(){
-		
-	}
-	
-	deletestudentfile({){
+	String studentfilename;
+	void addstudents(String str){	
 		
 	}
 }
 public class mainfunction {
 	public static void main(String[] args) {
-		
-		
-		String str,path,dirName;
+		String str,path,dirName,str3,str2;
 		Scanner firstinput = new Scanner(System.in);
 		Scanner secondinput = new Scanner(System.in);
-		int choice;
-		
-		
-		System.out.println("1. There is no student class directory please provide a name for a new dirctory:");
-		path="C:/Users/Naman/Desktop/eclipse-workspace/filehandling/src/";
-		Scanner adding= new Scanner(System.in);
-		path = path+ adding.next();
-		File sc2 = new File(path);
-		sc2.mkdir();
-		
-		 dirName = "C:/Users/Naman/Desktop/eclipse-workspace/filehandling/src/";
-		 
+	    File folder = new File("C:/Users/Naman/Desktop/eclipse-workspace/filehandling/src/");
+	    school calling = new school();
+		int choice,choice2;
 		do {
-			
-
-			Files.list(new File(dirName).toPath())
-			.limit(10)
-			.forEach(path -> { System.out.println(path); });
-			
-			System.out.println("1. Add a new directory:");
-			System.out.println("2. To acess a particular student directory out of the given list of dircetory:");
-			System.out.println("3. To exit the program");
+			System.out.println("1. To Browse over student directory:");
+			System.out.println("2. To exit the program");
 			choice=firstinput.nextInt();
-			
 			if (choice==1) {
-				path="C:/Users/Naman/Desktop/eclipse-workspace/filehandling/src/";
-				Scanner adding= new Scanner(System.in);
-				path = path+ adding.next();
-				File sc2 = new File(path);
-				sc2.mkdir();
-			}
-			else if (choice==2) {
-				
-				
-			}
-			}
-			else {
-				System.out.println("Wrong ");
-			}
-		
-		}
-		while(choice!=3);
+				File[] listOfFiles = folder.listFiles();
+				 for (int i = 0; i < listOfFiles.length; i++) {
+					   if (listOfFiles[i].isFile()) {
+					     System.out.println(i+1+".Directory " + listOfFiles[i].getName());
+					   }
+					   System.out.println("In which directory you want to add file(please enter appropriate serial No):");
+					   if (choice2==1) {
+						    File folder2 = new File("C:/Users/Naman/Desktop/eclipse-workspace/filehandling/src/class1/");
+						    str2=folder2.listFiles();
+						   if (str2==null) {
+							   System.out.println("No files in the current dierctory:");
+							   Scanner student1 = new Scanner();
+							   str3=student1.nextLine();
+							   calling.addstudents(str3);
+						   }
+					   }
+				 }
+		while(choice!=2);
 	}
 }
