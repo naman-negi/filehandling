@@ -1,10 +1,15 @@
 import java.io.File;
 import java.util.Scanner;
 class school{
-	String addclass;
-	String studentfilename;
-	void addstudents(String str){	
-		
+
+	void addstudents(String str){
+		if (str==null) {
+		}
+		else {
+			System.out.println("want to add more files(Yes/no):"):
+			Scanner adding = new Scanner(System.in);
+			String str2=adding.nextLine();
+			}
 	}
 }
 public class mainfunction {
@@ -31,12 +36,14 @@ public class mainfunction {
 						    str2=folder2.listFiles();
 						   if (str2==null) {
 							   System.out.println("No files in the current dierctory:");
-							   Scanner student1 = new Scanner();
+							   Scanner student1 = new Scanner(System.in);
 							   str3=student1.nextLine();
 							   calling.addstudents(str3);
 						   }
 					   }
 				 }
-		while(choice!=2);
+			}
+			}	while(choice!=2);
 	}
+		
 }
