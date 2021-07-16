@@ -6,10 +6,12 @@ import java.io.IOException;
 import java.io.FileNotFoundException;//Note Required
 
 class school{
+	
 	String name;
 	String rollno;
 	//This Function will add new txt files in a new directory
 	void addstudents(String str){
+
         String path;
         path="C:/Users/Naman/Desktop/eclipse-workspace/filehandling/src/student/class1/";
 		str=path+str;
@@ -41,16 +43,21 @@ class school{
 			System.out.println("want to add more files in this direcotry(Yes/no):");
 			Scanner adding = new Scanner(System.in);
 			String str2=adding.nextLine();
+			Scanner student1=null;
 			if (str2=="yes") {
 				System.out.println("Please enter the name of the file needs to be added:");		
-				Scanner student1 = new Scanner(System.in);
+				student1 = new Scanner(System.in);
 				addstudents(str2);
 			}else {
 				System.out.println("List of directories");
 				listdirectoryorfiles();
 			}
+			adding.close();
+			student1.close();
 		}
+	
 	}
+	//list directories or files
 	void listdirectoryorfiles() {
 	    File folder = new File("C:/Users/Naman/Desktop/eclipse-workspace/filehandling/src/");
 		File[] listOfFiles = folder.listFiles();
@@ -61,6 +68,7 @@ class school{
 		}		
 	}	
 	}
+	//search a particular file in all directories
 	String searchfile(String str) {
 		File folder = new File("C:/Users/Naman/Desktop/eclipse-workspace/filehandling/src/class1/");
 		File[] listOfFiles = folder.listFiles();
@@ -81,8 +89,10 @@ class school{
 			     }
 	}
 	}
+		return null;
 	}
-    void filedeleted(String str){
+    //Delete a particular file
+	void filedeleted(String str){
    
     	String path=str+"C:/Users/Naman/Desktop/eclipse-workspace/filehandling/src/student/class1/";
     	File file = new File(path);
@@ -92,11 +102,14 @@ class school{
     	file.delete();
 
     }
+    sortfiles(){
+    	
+    }
 }
 class mainfunction {
 		public static void main(String[] args) {
 	
-		String str,path,dirName,str3,str2,str4;
+		String str,path,dirName,str3,str2,str4,str5;
 		Scanner firstinput = new Scanner(System.in);
 		Scanner secondinput = new Scanner(System.in);
 		Scanner thirdinput = new Scanner(System.in);
@@ -133,10 +146,10 @@ class mainfunction {
 				 } else if (choice==2) {
 					   System.out.println("Write the name of the file you want to search:");
                        str4=thirdinput.nextLine();		
-                       searchfile(str4); 
+                       str5=calling.searchfile(str4); 
+                       System.out.print(str5);
 				   }
-			}
-				while(choice!=2);
+			}while(choice!=2);
 	}
 }
 		
