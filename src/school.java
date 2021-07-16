@@ -4,12 +4,14 @@ import java.io.File;//Note Required
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.FileNotFoundException;//Note Required
+import java.util.*;
 
 class school{
 	
 	String name;
 	String rollno;
-	//This Function will add new txt files in a new directory
+	//This Function will add new txt files in a new directory and will also display files
+	//files will be displayed in sorted manner
 	void addstudents(String str){
 
         String path;
@@ -61,12 +63,14 @@ class school{
 	void listdirectoryorfiles() {
 	    File folder = new File("C:/Users/Naman/Desktop/eclipse-workspace/filehandling/src/");
 		File[] listOfFiles = folder.listFiles();
+		List<String> files = new ArrayList<String>();
 		for (int i = 0; i < listOfFiles.length; i++) {
 			   if (listOfFiles[i].isFile()) {
-			     System.out.println(i+1+".Directory " + listOfFiles[i].getName());
-			     
-		}		
-	}	
+			     files.add("i"+listOfFiles[i].getName());
+			   }
+			   }
+		Collections.sort(files);
+		System.out.println(files);//This will display sorted directory
 	}
 	//search a particular file in all directories
 	String searchfile(String str) {
@@ -102,9 +106,7 @@ class school{
     	file.delete();
 
     }
-    sortfiles(){
-    	
-    }
+  
 }
 class mainfunction {
 		public static void main(String[] args) {
