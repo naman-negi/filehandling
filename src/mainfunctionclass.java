@@ -1,8 +1,6 @@
-
 import java.io.File;
 //import java.io.IOException;
 import java.util.Scanner;
-
 //Class Containing main function
 class mainfunctionclass {
 		public static void main(String[] args) {
@@ -21,7 +19,6 @@ class mainfunctionclass {
 			path="C:/Users/Naman/Desktop/eclipse-workspace/filehandling/src/student/";
 			calling.listdirectoryorfiles(path);
 			System.out.println("Which directory you want to see(enter the appropriate name):");
-		
 			str=firstinput.nextLine();
 			path=path+str; 
 			File file = new File(path);
@@ -37,14 +34,12 @@ class mainfunctionclass {
 						   calling.listdirectoryorfiles(path);
 						   if (file.list().length>0) {
 							   System.out.println("Name the file you want to add:");
-						
 							   str2=secondinput.nextLine();
 							   calling.addstudents(str2,path+"/");  
 						   }
 						  else {
 							  System.out.println("No files in the current dierctory add new file name:");
 							   System.out.println("Name the file you wan to add:");
-						
 							   str2=secondinput.nextLine();
 							   calling.addstudents(str2,path+"/");
 						   }
@@ -84,11 +79,7 @@ class mainfunctionclass {
 				sixthinput.close();
 				seventhinput.close();
 			}
-	
-		
 		}
-		
-		
 }
 		
 
