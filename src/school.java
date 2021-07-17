@@ -7,33 +7,39 @@ public class school{
 	String rollno;
 	//This Function will add new txt files in a new directory and will also display files
 	public void addstudents(String str,String path) {
-		str=path+str+".txt";
-		Scanner input1= new Scanner (System.in);
-		try { 
+		str=path+str+".txt"; 
+			System.out.println("Please enter the name of the student:");	
+			Scanner input1= new Scanner (System.in);
+			Scanner input2= new Scanner (System.in);
+			Scanner input3= new Scanner (System.in);
+		try {
 			FileWriter fw1=new FileWriter(str);
-			System.out.println("Please enter the name of the student:");		
 			name=input1.nextLine();
 			fw1.write("Name: "+name);
 			System.out.println("Please enter the roll no:");
 			rollno=input1.nextLine();
-			fw1.write("Roll No: "+rollno);
+			fw1.write("Roll No: "+rollno);	
 			fw1.close();
 		}catch(IOException e){
 			e.printStackTrace();
-		}
+		}finally {
 		    System.out.println("The Updated List");
 		    listdirectoryorfiles(path);//will display sorted files 
 			System.out.println("Want to add more files in this direcotry(Yes/no):");
-			str=input1.nextLine();
+			
+			str=input2.nextLine();
+		
 			if (str.equals("yes")) {
 				System.out.println("Please enter the name of the file needs to be added:");		
-				//Scanner student1 = new Scanner(System.in);
-				String str2=input1.nextLine();
+				String str2=input3.nextLine();
 				str=str2;
 				addstudents(str,path);	
-			}
-			
-		}
+				input1.close();
+				input2.close();
+				input3.close();
+			}		
+	}
+	}
 	//list directories or files in sorted manner
 	public void listdirectoryorfiles(String path) {
 		   File directorypath = new File(path);
@@ -46,24 +52,17 @@ public class school{
 				System.out.println(files);
 	}
 	//search a particular file in all directories
-	public String searchfile(String str) {
+	public String searchfile(String str,String path) {
 		str=str+".txt";
-		File folder = new File("C:/Users/Naman/Desktop/eclipse-workspace/filehandling/src/student/class1/");
-		File[] listOfFiles = folder.listFiles();
-		for (int i = 0; i < listOfFiles.length; i++) {
-			     if (str.equals(listOfFiles[i].getName())) {
-			    	 str="Item found In the directory class1";
-			    	 }
-    }
-		folder = new File("C:/Users/Naman/Desktop/eclipse-workspace/filehandling/src/student/class2/");
-		listOfFiles = folder.listFiles();
-		for (int i = 0; i < listOfFiles.length; i++) {
-			if (str.equals(listOfFiles[i].getName())) {
-		    	 str="Item found In the directory class2";   	 
-		}
-		}
-		 return str;
-	}
+		 File f = new File(path+str);
+		if (f.exists())
+		{ System.out.println("Exists");}
+        else
+        { str="Does not Exists";}
+ 
+		return str;
+	
+}
 	//Delete a particular file
 	public void filedeleted(String str){
    
