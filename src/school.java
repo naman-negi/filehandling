@@ -6,7 +6,7 @@ public class school{
 	String name;
 	String rollno;
 	//This Function will add new txt files in a new directory and will also display files
-	public void addstudents(String str,String path) {
+	void addstudents(String str,String path) {
 		str=path+str+".txt"; 
 			System.out.println("Please enter the name of the student:");	
 			Scanner input1= new Scanner (System.in);
@@ -41,7 +41,7 @@ public class school{
 	}
 	}
 	//list directories or files in sorted manner
-	public void listdirectoryorfiles(String path) {
+    void listdirectoryorfiles(String path) {
 		   File directorypath = new File(path);
 		   File listFiles[] = directorypath.listFiles();
 		   List<String> files = new ArrayList<String>();
@@ -52,7 +52,7 @@ public class school{
 				System.out.println(files);
 	}
 	//search a particular file in all directories
-	public String searchfile(String str,String path) {
+    String searchfile(String str,String path) {
 		str=str+".txt";
 		 File f = new File(path+str);
 		if (f.exists())
@@ -64,7 +64,7 @@ public class school{
 	
 }
 	//Delete a particular file
-	public void filedeleted(String str){
+	void filedeleted(String str){
    
     	String path="C:/Users/Naman/Desktop/eclipse-workspace/filehandling/src/student/class1/"+str+".txt";
     	File file=new File(path);
